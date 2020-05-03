@@ -1,0 +1,81 @@
+/* body {
+  color: black;
+  background-image: url("https://2.bp.blogspot.com/-BvqlSa7VYs4/XLdT43U62eI/AAAAAAAABqY/jtpNafCVwIIhoEzZQQU9kPiE9JQ1pGK5QCKgBGAs/w0/garou-one-punch-man-uhdpaper.com-4K-115.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+} */
+
+.hilite__overlays {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+  opacity: 0;
+  z-index: 100000;
+}
+
+.hilite__overlay {
+  position: absolute;
+  background-color: #000000d4;
+}
+
+.hilite__overlay--left {
+  left: 0;
+  height: 100%;
+}
+
+.hilite__overlay--right {
+  right: 0;
+  height: 100%;
+}
+
+.hilite__overlay--bottom {
+  bottom: 0;
+  width: 100%;
+}
+
+.hilite__overlay--top {
+  top: 0;
+  width: 100%;
+}
+
+.hilite__close-btn {
+  font-size: 12px;
+  color: #fff;
+  position: fixed;
+  background: #4fd1c5;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 3px 6px;
+  pointer-events: all;
+}
+
+.hilite__message {
+  position: fixed;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 0.5rem;
+  z-index: 10;
+  pointer-events: all;
+  max-width: 230px;
+  max-height: 200px;
+  overflow-y: auto;
+  transition: opacity .6s;
+  font-size: 80%;
+}
+
+.hilite__next-step-btn {
+  font-size: 12px;
+  color: #fff;
+  position: fixed;
+  background: #4fd1c5;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 3px 6px;
+  pointer-events: all;
+}
