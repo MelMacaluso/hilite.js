@@ -28,6 +28,8 @@ const { Hilite } = window.Hilite;
 import Hilite from '@melmacaluso/hilite.js';
 ```
 
+## Options
+
 ## How to
 
 Create a flow

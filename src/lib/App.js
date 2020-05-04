@@ -1,7 +1,9 @@
 import '../lib/css/App.css'
 
 class Hilite {
-  constructor(stepsArray) {
+  constructor(stepsArray = [], options = {}) {
+    this.options = options
+    this.initTimeout = this.options.initTimeout || 0
     this.stepsArray = stepsArray
     this.step = 0
     this.stepsNumber = this.stepsArray.length
@@ -26,7 +28,7 @@ class Hilite {
     this.targetHeight = this.target.clientHeight
     this.message = this.currentStepObj.message
 
-    this.messageBox.innerText = this.message
+    this.messageBox.innerHTML = this.message
   }
 
   handleLastStep() {
@@ -137,7 +139,7 @@ class Hilite {
 
   createNextStepBtn() {
     const btn = document.createElement('button')
-    btn.innerText = 'Next'
+    btn.innerHTML = 'Next'
     btn.className = 'hilite__next-step-btn'
     btn.addEventListener('click', () => {
       this.nextStep()
@@ -157,7 +159,7 @@ class Hilite {
   createCloseBtn(closeBtnText) {
     const closeBtn = document.createElement('button')
     closeBtn.className = 'hilite__close-btn'
-    closeBtn.innerText = closeBtnText || 'Finish'
+    closeBtn.innerHTML = closeBtnText || 'Finish'
     closeBtn.addEventListener('click', () => {
       this.endOfFlow()
     })
@@ -175,25 +177,26 @@ class Hilite {
   }
 
   start() {
-    const targetExists = this.target
+    setTimeout(() => {
+      const targetExists = this.target
 
-    if (targetExists) {
-      this.isHilited = true
+      if (targetExists) {
+        this.displaceOverlays()
+        this.appendOverlays()
+        this.displaceMessage()
+        this.appendMessage()
 
-      this.displaceOverlays()
-      this.appendOverlays()
-      this.displaceMessage()
-      this.appendMessage()
+        if (this.stepsNumber > 0) {
+          this.displaceNextStepBtn()
+          this.appendNextStepBtn()
+        }
 
-      if (this.stepsNumber > 0) {
-        this.displaceNextStepBtn()
-        this.appendNextStepBtn()
+        setTimeout(() => {
+          this.overlaysWrapper.style.opacity = 1
+        }, 300)
       }
+    }, this.initTimeout)
 
-      setTimeout(() => {
-        this.overlaysWrapper.style.opacity = 1
-      }, 300)
-    }
   }
 
   endOfFlow() {
