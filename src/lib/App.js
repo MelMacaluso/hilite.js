@@ -1,10 +1,10 @@
 import '../lib/css/App.css'
 
 class Hilite {
-  constructor(stepsArray = [], options = {}) {
+  constructor(options) {
     this.options = options
     this.initTimeout = this.options.initTimeout || 0
-    this.stepsArray = stepsArray
+    this.stepsArray = this.options.flow
     this.step = 0
     this.stepsNumber = this.stepsArray.length
     this.body = document.querySelector('body')
